@@ -53,7 +53,9 @@ static BSONObj upgradeWriteConcern(const BSONObj& origWriteConcern) {
         BSONElement elem(iter.next());
 
         if (strncmp(elem.fieldName(), "w", 2) == 0) {
-            newWriteConcern.append("w", 1);
+            //fix
+            //newWriteConcern.append("w", 1);
+            newWriteConcern.append("w", 0);
         } else {
             newWriteConcern.append(elem);
         }
